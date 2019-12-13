@@ -1,12 +1,15 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView
-from django.views.generic import FormView
+
+from assessment import urls as assessment_urls
+from response import urls as response_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name="index.html")),
-    path('assessment/', TemplateView.as_view(template_name="dass21.html")),
+    path('assessment/', include(assessment_urls)),
+    path('response/', include(response_urls)),
     path('about/', TemplateView.as_view(template_name="about.html")),
     path('blog-home', TemplateView.as_view(template_name="blog-home.html")),
     path('blog-details', TemplateView.as_view(template_name="blog-details.html")),

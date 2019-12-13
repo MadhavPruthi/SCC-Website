@@ -112,15 +112,16 @@
                             <br/>
 
                             <ol class="txt3 p-b-20" start="1">
-                                <li>Applied to me to some degree, or some of the time</li>
-                                <li>Did not apply to me at all</li>
-                                <li>Applied to me to a considerable degree or a good part of time</li>
-                                <li>Applied to me very much or most of the time</li>
+                                {% for choice in choices %}
+                                    <li>{{ choice.choice_text }}</li>
+                                {% endfor %}
                             </ol>
 
                             <hr/>
 
-                            <form class=" p-t-20" action="." method="POST">
+                            <form class=" p-t-20" action="{% url 'response:submit' %}" method="POST">
+
+                                {% csrf_token %}
 
                                 <div class="question-group txt3">
                                     <div class="index"></div>
@@ -133,7 +134,35 @@
                                         <h5>Severity</h5>
                                     </div>
 
-                                    <div class="boxed">
+                                    <!-- Question Block start -->
+
+                                    {% for question in questions %}
+                                        <div class="boxed">
+                                            <div class="index">
+                                                {{ forloop.counter }}.
+                                            </div>
+
+                                            <div class="statement-group">
+                                                {{ question.question }}
+                                            </div>
+
+                                            <div class="choice-group">
+                                                {% for choice in choices %}
+                                                    <label>
+                                                        <input type="radio" name="{{ question.id }}" value="{{ choice.id }}"
+                                                               aria-label="Option {{ forloop.counter }} for aforementioned text input"
+                                                               required/>
+                                                        {{ forloop.counter }}
+                                                    </label>
+                                                {% endfor %}
+
+                                            </div>
+                                        </div>
+
+                                    {% endfor %}
+                                    <!-- Question Block end -->
+
+                                    <!--<div class="boxed">
                                         <div class="index">
                                             1.
                                         </div>
@@ -828,7 +857,19 @@
                                                 3
                                             </label>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                </div>
+
+                                <div class="form-group m-t-40" style="width:100%;">
+                                    <i class="fa fa-envelope prefix" style="color:#666666;">
+
+                                        <label class="txt3 p-b-10">
+                                            Email ID
+                                        </label>
+
+                                        <input class="txt3 form-control" name="email" required
+                                               placeholder="To keep you up-to-date"/>
+                                    </i>
                                 </div>
 
                                 <div class="form-group m-t-40" style="width:100%;">
@@ -857,38 +898,38 @@
     </div>
 </section>
 <footer class="footer-area section-padding">
-        <div class="footer-right">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-6">
+    <div class="footer-right">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6">
                         <span>
 </span>
                 </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="social-icons">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            </ul>
-                        </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="social-icons">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
 
 <!--===============================================================================================-->
 <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
-	<script src="{% static 'js/vendor/bootstrap-4.1.3.min.js' %}"></script>
-    <script src="{% static 'js/vendor/wow.min.js' %}"></script>
-    <script src="{% static 'js/vendor/owl-carousel.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.datetimepicker.full.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.nice-select.min.js' %}"></script>
-    <script src="{% static 'js/vendor/superfish.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap-4.1.3.min.js' %}"></script>
+<script src="{% static 'js/vendor/wow.min.js' %}"></script>
+<script src="{% static 'js/vendor/owl-carousel.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery.datetimepicker.full.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/vendor/superfish.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 <!--===============================================================================================-->
 <script src="{% static 'js/vendor/select2.min.js' %}"></script>
 <!--===============================================================================================-->
