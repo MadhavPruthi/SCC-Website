@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main-pritish.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my-main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <!--===============================================================================================-->
 </head>
@@ -37,28 +37,6 @@
 
 
 <header class="header-area">
-    {#        <div class="header-top">#}
-    {#            <div class="container">#}
-    {#                <div class="row">#}
-    {#                    <div class="col-lg-9 d-md-flex">#}
-    {#                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-mobile"></i></span> call us now! +1 305 708 2563</h6>#}
-    {#                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-envelope-o"></i></span> medical@example.com</h6>#}
-    {#                        <h6><span class="mr-2"><i class="fa fa-map-marker"></i></span> Find our Location</h6>#}
-    {#                    </div>#}
-    {#                    <div class="col-lg-3">#}
-    {#                        <div class="social-links">#}
-    {#                            <ul>#}
-    {#                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>#}
-    {#                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>#}
-    {#                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>#}
-    {#                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>#}
-    {#                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>#}
-    {#                            </ul>#}
-    {#                        </div>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </div>#}
     <div id="header">
         <div class="container">
             <div class="row align-items-center justify-content-between d-flex">
@@ -71,12 +49,6 @@
                         <li class="menu-active"><a href="/">Home</a></li>
                         <li><a href="/assessment">Take Assessment</a></li>
                         <li><a href="/about">About Us</a></li>
-                        <li class="menu-has-children"><a href="">Blog</a>
-                            <ul>
-                                <li><a href="/blog-home">blog home</a></li>
-                                <li><a href="/blog-details">blog details</a></li>
-                            </ul>
-                        </li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
@@ -84,32 +56,33 @@
         </div>
     </div>
 </header>
-<section class="patient-area section-padding">
+<!-- Banner Area Starts -->
+<section class="banner-area other-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <h1>DASS21</h1>
+                <br>
+                {#                <a href="/">Home</a> <span>|</span> <a href="/contact">Contact</a>#}
+                <h4>Please read each statement and circle a number 0, 1, 2 or 3
+                    which indicates how much the statement applied to you over the past week.
+                    There are no right or wrong answers. Do not spend too much time on any statement.</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Area End -->
+<section class="patient-area">
     <div class="container">
         <div class="row">
             <div class="limiter">
                 <div class="container-login100">
                     <div class="wrap-login100">
-                        <div class="dass21-form-title">
-                            <h1>
-                                DASS21
-                            </h1>
-                        </div>
 
                         <div class="text-left p-t-10">
-                            <p class="txt3" style="text-align: justify">
-                                Please read each statement and circle a number 0, 1, 2 or 3
-                                which indicates how much the statement applied to you over the past week.
-                                There are no right or wrong answers. Do not spend too much time on any statement.
-                            </p>
-
-                            <br/>
-
                             <p class="txt3">
                                 The rating scale is as follows:
                             </p>
-
-                            <br/>
 
                             <ol class="txt3 p-b-20" start="1">
                                 {% for choice in choices %}
@@ -119,7 +92,7 @@
 
                             <hr/>
 
-                            <form class=" p-t-20" action="{% url 'response:submit' %}" method="POST">
+                            <form id="dass21-form" class=" p-t-20" action="{% url 'response:submit' %}" method="POST">
 
                                 {% csrf_token %}
 
@@ -144,12 +117,14 @@
 
                                             <div class="statement-group">
                                                 {{ question.question }}
+                                                <br>
+                                                {{ question.question }}
                                             </div>
-
                                             <div class="choice-group">
                                                 {% for choice in choices %}
                                                     <label>
-                                                        <input type="radio" name="{{ question.id }}" value="{{ choice.id }}"
+                                                        <input type="radio" name="{{ question.id }}"
+                                                               value="{{ choice.id }}"
                                                                aria-label="Option {{ forloop.counter }} for aforementioned text input"
                                                                required/>
                                                         {{ forloop.counter }}
@@ -161,703 +136,6 @@
 
                                     {% endfor %}
                                     <!-- Question Block end -->
-
-                                    <!--<div class="boxed">
-                                        <div class="index">
-                                            1.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I found it hard to wind down
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-1" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-1" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-1" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-1" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            2.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I was aware of dryness in my mouth
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-2" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-2" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-2" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-2" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            3.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I couldn't seem to experience any positive feeling at all
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-3" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-3" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-3" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-3" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            4.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I experienced breathing difficulty (e.g. excessively rapid breathing,
-                                            breathlessness in the absence of physical exertion)
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-4" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-4" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-4" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-4" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            5.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I found it difficult to work up the initive to do things
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-5" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-5" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-5" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-5" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            6.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I tended to over-react to situations
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-6" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-6" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-6" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-6" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            7.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I experienced trembling (e.g. in the hands)
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-7" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-7" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-7" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-7" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            8.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I felt that I was using a lot of nervous energy
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-8" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-8" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-8" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-8" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            9.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I was worried about the situations in which I might panic and make a fool of
-                                            myself
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-9" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-9" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-9" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-9" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            10.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I felt that I had nothing to look forward to
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-10" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-10" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-10" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-10" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            11.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I found myself getting agitated
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-11" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-11" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-11" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-11" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            12.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I found it difficult to relax
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-12" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-12" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-12" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-12" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            13.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I felt downhearted and blue
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-13" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-13" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-13" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-13" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            14.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I was intolerant of anything that kept me from getting on with what I was
-                                            doing
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-14" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-14" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-14" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-14" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            15.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I felt I was close to panic
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-15" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-15" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-15" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-15" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            16.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I was unable to become enthusiactic about anything
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-16" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-16" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-16" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-16" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            17.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I felt that I wasn't much as a person
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-17" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-17" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-17" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-17" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            18.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I felt that I was rather touchy
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-18" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-18" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-18" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-18" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            19.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I was aware of the action of my heart in the absence of physical
-                                            exertion (e.g. sense of heart rate increase, heart missing a beat)
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-19" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-19" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-19" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-19" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            20.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I felt scared without any good reason
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-20" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-20" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-20" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-20" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="boxed">
-                                        <div class="index">
-                                            21.
-                                        </div>
-
-                                        <div class="statement-group">
-                                            I felt that life was meaningless
-                                        </div>
-
-                                        <div class="choice-group">
-                                            <label>
-                                                <input type="radio" name="group-21" value="0"
-                                                       aria-label="Option 1 for aforementioned text input" required/>
-                                                0
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-21" value="1"
-                                                       aria-label="Option 2 for aforementioned text input"/>
-                                                1
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-21" value="2"
-                                                       aria-label="Option 3 for aforementioned text input"/>
-                                                2
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="group-21" value="3"
-                                                       aria-label="Option 4 for aforementioned text input"/>
-                                                3
-                                            </label>
-                                        </div>
-                                    </div> -->
                                 </div>
 
                                 <div class="form-group m-t-40" style="width:100%;">
