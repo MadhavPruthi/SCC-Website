@@ -128,10 +128,7 @@ dmypy.json
 .pyre/
 
 ### Django ###
-*.log
-*.pot
 *.pyc
-__pycache__/
-local_settings.py
 
-.idea/
+
+.idea

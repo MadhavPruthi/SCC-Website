@@ -24,5 +24,12 @@ class UserResponse(models.Model):
     answers = models.ManyToManyField(Response)
     comments = models.TextField(blank=True, null=True)
 
+    def delete(self, *args, **kwargs):
+        print(self.answers.all())
+        for answer in self.answers.all():
+            print(answer.answer.id)
+            answer.delete()
+        super(UserResponse, self).delete()
+
     def __str__(self):
         return str(self.response_id) + " - " + self.email

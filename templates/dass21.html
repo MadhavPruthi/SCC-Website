@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{% static  'images/logo/favicon.png' %}"/>
     <!--===============================================================================================-->
@@ -31,6 +33,21 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/my-main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <!--===============================================================================================-->
+
+    <script>
+        $("#dass21-form").submit(function (event) {
+
+            console.log("PRESEED");
+            var recaptcha = $("#g-recaptcha-response").val();
+            if (recaptcha === "") {
+                event.preventDefault();
+                alert("Please check the recaptcha");
+            }
+        });
+
+    </script>
+
+
 </head>
 
 <body>
@@ -161,6 +178,9 @@
                                                   placeholder="Write about anything else bothering you or anything you want to let us know. . ."></textarea>
                                     </i>
                                 </div>
+
+                                <div class="g-recaptcha" data-sitekey="6Ld8nscUAAAAAHCeFpma2nkQlTqF2gwPJx7i2rAg"
+                                     aria-required=></div>
 
                                 <div class="container-login100-form-btn m-t-10 m-b-10" style="width: 35%">
                                     <button class="login100-form-btn" type="submit">
