@@ -1,6 +1,6 @@
 import requests
 from django.http import Http404
-from django.shortcuts import redirect
+from django.shortcuts import render
 
 from assessment.models import Question, Choice
 from response.models import UserResponse, Response
@@ -36,7 +36,7 @@ def submit_response(request):
                     print(e)
 
             user_response.save()
-            return redirect("/")
+            return render(request, "thank-you.html", {"assessment_id": user_response.response_id})
         else:
             raise Http404("ReCaptcha Not Verified")
     raise Http404("Wrong Entry")
