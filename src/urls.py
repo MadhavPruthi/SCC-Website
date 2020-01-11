@@ -11,5 +11,6 @@ urlpatterns = [
     path('assessment/', include(assessment_urls)),
     path('response/', include(response_urls)),
     path('about/', TemplateView.as_view(template_name="about.html")),
-    path('contact', TemplateView.as_view(template_name="contact.html")),
+    path('contact/', TemplateView.as_view(template_name="contact.html")),
+    path('privacy_calmminds/', TemplateView.as_view(template_name="privacyPolicy.html"))
 ]

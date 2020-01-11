@@ -928,8 +928,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-area {
-    color: #fff;
-    background: #12151f
+    position: relative;
+    clear: both;
+    padding: 50px 0;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
 }
 
 .footer-area h3 {
@@ -937,8 +941,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-area a {
-    color: #fff;
-    text-transform: capitalize;
+    color: #000;
     -webkit-transition: .3s;
     -moz-transition: .3s;
     -o-transition: .3s;
@@ -2101,10 +2104,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     .element-wrap {
         margin-top: 30px
     }
-}
-
-b, sup, sub, u, del {
-    color: #f8b600
 }
 
 h1 {

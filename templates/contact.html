@@ -38,12 +38,6 @@
                     <li class="menu-active"><a href="/">Home</a></li>
                     <li><a href="/assessment">Take Assessment</a></li>
                     <li><a href="/about">About Us</a></li>
-                    {#                        <li class="menu-has-children"><a href="">Blog</a>#}
-                    {#                            <ul>#}
-                    {#                                <li><a href="/blog-home">blog home</a></li>#}
-                    {#                                <li><a href="/blog-details">blog details</a></li>#}
-                    {#                            </ul>#}
-                    {#                        </li>#}
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
@@ -117,98 +111,19 @@
                     </div>
                 </div>
             </div>
-{#            <div class="col-lg-9">#}
-{#                <form action="#">#}
-{#                    <div class="left">#}
-{#                        <input type="text" placeholder="Enter your name" onfocus="this.placeholder = ''"#}
-{#                               onblur="this.placeholder = 'Enter your name'" required>#}
-{#                        <input type="email" placeholder="Enter email address" onfocus="this.placeholder = ''"#}
-{#                               onblur="this.placeholder = 'Enter email address'" required>#}
-{#                        <input type="text" placeholder="Enter subject" onfocus="this.placeholder = ''"#}
-{#                               onblur="this.placeholder = 'Enter subject'" required>#}
-{#                    </div>#}
-{#                    <div class="right">#}
-{#                        <textarea name="message" cols="20" rows="7" placeholder="Enter Message"#}
-{#                                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'"#}
-{#                                  required></textarea>#}
-{#                    </div>#}
-{#                    <button type="submit" class="template-btn">subscribe now</button>#}
-{#                </form>#}
-{#            </div>#}
         </div>
     </div>
 </section>
 <!-- Contact Form End -->
 
-
-<!-- Footer Area Starts -->
-<footer class="footer-area section-padding">
-    <div class="footer-widget">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-2 col-lg-3">
-                    <div class="single-widget-home mb-5 mb-lg-0">
-                        <h3 class="mb-4">top products</h3>
-                        <ul>
-                            <li class="mb-2"><a href="#">managed website</a></li>
-                            <li class="mb-2"><a href="#">managed reputation</a></li>
-                            <li class="mb-2"><a href="#">power tools</a></li>
-                            <li><a href="#">marketing service</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-lg-6">
-                    <div class="single-widget-home mb-5 mb-lg-0">
-                        <h3 class="mb-4">newsletter</h3>
-                        <p class="mb-4">You can trust us. we only send promo offers, not a single.</p>
-                        <form action="#">
-                            <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Your email here'" required>
-                            <button type="submit" class="template-btn">subscribe now</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-xl-3 offset-xl-1 col-lg-3">
-                    <div class="single-widge-home">
-                        <h3 class="mb-4">instagram feed</h3>
-                        <div class="feed">
-                            <img src="../static/images/feed1.jpg" alt="feed">
-                            <img src="../static/images/feed2.jpg" alt="feed">
-                            <img src="../static/images/feed3.jpg" alt="feed">
-                            <img src="../static/images/feed4.jpg" alt="feed">
-                            <img src="../static/images/feed5.jpg" alt="feed">
-                            <img src="../static/images/feed6.jpg" alt="feed">
-                            <img src="../static/images/feed7.jpg" alt="feed">
-                            <img src="../static/images/feed8.jpg" alt="feed">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-right">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-6">
-                        <span>
-</span>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="social-icons">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<footer id="footer" class="footer-area">
+    <div class="container-fluid">
+        <p>
+            &copy; <a href="/">Calm Minds, Inc. 2020-2026 <!--TODO to update these years --></a> |
+            <a href="/privacy_calmminds" id="privacy-footer">Privacy Policy</a>
+        </p>
     </div>
 </footer>
-<!-- Footer Area End -->
-
 
 <!-- Javascript -->
 <script src="{% static 'js/vendor/jquery-3.4.1.min.js' %}"></script>
@@ -219,8 +134,9 @@
 <script src="{% static 'js/vendor/superfish.min.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key= YOUR_KEY_HERE &callback=initMap">
 </script>
+<!-- TODO add API key -->
 
 </body>
 </html>

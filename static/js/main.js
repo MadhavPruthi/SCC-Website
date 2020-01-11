@@ -161,21 +161,6 @@
         // // Nice Select
         $('select').niceSelect();
 
-
-        // // Google Map
-        // if ($('#mapBox').length) {
-        //     var $lat = $('#mapBox').data('lat');
-        //     var $lon = $('#mapBox').data('lon');
-        //     var $zoom = $('#mapBox').data('zoom');
-        //     // var $marker = $('#mapBox').data('marker');
-        //     var $info = $('#mapBox').data('info');
-        //     var $markerLat = $('#mapBox').data('mlat');
-        //     var $markerLon = $('#mapBox').data('mlon');
-        //     var $pos = {lat : $lat, lng: $lon};
-        //     var $map = new google.maps.Map(document.getElementById('mapmapBox'), {zoom: 12, center: $pos});
-        //     var marker = new google.maps.Marker({position: pos, map: $map});
-        // }
-
     });
 
     jQuery(window).on('load', function () {

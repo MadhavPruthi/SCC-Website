@@ -250,6 +250,35 @@ iframe {
     text-align: justify;
 }
 
+.name-group {
+    width: 20%;
+    padding-right: 15px;
+    text-align: left;
+}
+
+.email-group {
+    width: 25%;
+    padding-right: 15px;
+    text-align: left;
+}
+
+.contact-group {
+    width: 20%;
+    padding-right: 15px;
+    text-align: left;
+}
+
+.message-group {
+    width: 30%;
+    padding-right: 15px;
+    text-align: left;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+}
+
 .choice-group {
     width: 25%;
     display: flex;
