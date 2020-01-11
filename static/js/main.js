@@ -151,8 +151,11 @@
 
         // Date Picker
         jQuery('#datepicker').datetimepicker({
-            timepicker: false,
-            format: 'd.m.Y',
+            format: 'dd-mm-yyyy  HH:ii P',
+            minDate: "+1d",
+            startDate: "+1d",
+            daysOfWeekDisabled: [0,6],
+            disabledHours: [0,1,2,3,4,5,6,7,8,18,19,20,21,22,23],
         });
 
         // // Nice Select

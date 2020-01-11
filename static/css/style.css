@@ -742,7 +742,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     right: -30%;
     width: 60%;
     height: 110%;
-    border: 10px solid #f9f9f9;
     z-index: -1
 }
 
@@ -1047,18 +1046,18 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area.other-page {
-    padding: 220px 0 170px
+    padding: 220px 0 240px
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
     .banner-area.other-page {
-        padding: 250px 0 100px
+        padding: 250px 0 150px
     }
 }
 
 @media (max-width: 575.98px) {
     .banner-area.other-page {
-        padding: 250px 0 100px
+        padding: 250px 0 150px
     }
 }
 
