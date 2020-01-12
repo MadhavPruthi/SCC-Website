@@ -65,7 +65,7 @@
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="/">Find Assessment</a></li>
                         <li><a href="/appointments">Appointments</a></li>
-                        <li><a href="/logout">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                        <li><a href="{% url 'authentication:logout' %}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -125,16 +125,16 @@
 
                                     <!-- Question Block start -->
 
-                                    {% for question in questions %}
+                                    {% for response in user_response.answers.all %}
                                         <div class="boxed">
                                             <div class="index">
                                                 {{ forloop.counter }}.
                                             </div>
 
                                             <div class="statement-group">
-                                                {{ question.english_text }}
+                                                {{ response.question.english_text }}
                                                 <br>
-                                                {{ question.hindi_text }}
+                                                {{ response.question.hindi_text }}
                                             </div>
                                             <div class="choice-group">
                                                 {% for choice in choices %}
@@ -142,6 +142,8 @@
                                                         <input type="radio" name="{{ question.id }}"
                                                                value="{{ choice.id }}"
                                                                aria-label="Option {{ forloop.counter }} for aforementioned text input"
+                                                               {% if response.answer.id == choice.id %}checked="checked"{% endif %}
+                                                               disabled="disabled"
                                                                required/>
                                                         {{ forloop.counter }}
                                                     </label>
@@ -162,6 +164,7 @@
                                         </label>
 
                                         <input class="txt3 form-control" name="email" required
+                                               value="{{ user_response.email }}" disabled="disabled"
                                                placeholder="To keep you up-to-date"/>
                                     </i>
                                 </div>
@@ -174,7 +177,8 @@
                                         </label>
 
                                         <textarea class="txt3 form-control" rows="3" cols="50" name="comments"
-                                                  placeholder="Write about anything else bothering you or anything you want to let us know. . ."></textarea>
+                                                  disabled="disabled"
+                                                  placeholder="Write about anything else bothering you or anything you want to let us know. . .">{{ user_response.comments }}</textarea>
                                     </i>
                                 </div>
                             </form>

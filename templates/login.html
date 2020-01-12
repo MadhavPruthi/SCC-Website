@@ -31,16 +31,21 @@
             <div class="col-lg-5">
                 <div class="appointment-form text-center mt-5 mt-lg-0">
                     <h3 class="mb-5">Welcome</h3>
-                    <form action="#" autocomplete="off">
+                    <form autocomplete="off" method="post">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
                         <div class="form-group">
-                            <input type="text" placeholder="Username" onfocus="this.placeholder = ''"
+                            <input type="text" name="username" placeholder="Username" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'Username'" required>
+                            {{ form.username.errors }}
                         </div>
                         <div class="form-group">
-                            <input type="password" placeholder="Password" onfocus="this.placeholder = ''"
+
+                            <input type="password" name="password" placeholder="Password" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'Password'" required>
+                            {{ form.password.errors }}
                         </div>
-                        <a href="#" class="template-btn" style="color: white">Login</a>
+                        <button class="template-btn" style="color: white" type="submit">Login</button>
                     </form>
                 </div>
             </div>
@@ -58,7 +63,6 @@
 <script src="{% static 'js/vendor/jquery.nice-select.min.js' %}"></script>
 <script src="{% static 'js/vendor/superfish.min.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
-
 
 </body>
 </html>
