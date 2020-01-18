@@ -1,7 +1,6 @@
 import os
 
 from decouple import config
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from django.urls import reverse_lazy
 
@@ -31,6 +30,7 @@ INSTALLED_APPS = [
     'assessment',
     'response',
     'authentication',
+    'appointment',
 ]
 
 MIDDLEWARE = [
@@ -111,7 +111,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
 
 LOGIN_REDIRECT_URL = reverse_lazy('assessment:check_assessment')
 LOGIN_URL = reverse_lazy('authentication:login')
