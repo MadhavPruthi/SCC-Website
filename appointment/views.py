@@ -1,7 +1,8 @@
 from datetime import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseNotFound
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 from appointment.models import Appointment
 
@@ -19,5 +20,16 @@ def make_appointment(request):
         )
         appointment.save()
         return redirect('home')
+    else:
+        return HttpResponseNotFound('<h1>Page not found</h1>')
+
+
+@login_required()
+def view_appointments(request):
+    if request.method == 'GET':
+        data = Appointment.objects.all()
+        context = {"data": data}
+        return render(request, 'appointmentRequests.html', context);
+
     else:
         return HttpResponseNotFound('<h1>Page not found</h1>')

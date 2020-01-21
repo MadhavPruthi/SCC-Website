@@ -52,7 +52,6 @@
 
 <body>
 
-
 <header class="header-area">
     <div id="header">
         <div class="container">
@@ -64,8 +63,8 @@
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="/">Find Assessment</a></li>
-                        <li><a href="/appointments">Appointments</a></li>
-                        <li><a href="/logout">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                        <li><a href="{% url 'appointment:view_appointments' %}">Appointments</a></li>
+                        <li><a href="{% url 'authentication:logout' %}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -116,25 +115,32 @@
                                         <h5>Message</h5>
                                     </div>
 
+                                    <div class="message-group title">
+                                        <h5>Date/Time</h5>
+                                    </div>
+
                                     <!-- Question Block start -->
 
-                                    {% for question in questions %}
+                                    {% for appointment in data %}
                                         <div class="boxed">
                                             <div class="index">
                                                 {{ forloop.counter }}.
                                             </div>
 
                                             <div class="name-group">
-                                                {{ question.english_text }}
+                                                {{ appointment.name }}
                                             </div>
                                             <div class="email-group">
-                                                {{ question.english_text }}
+                                                {{ appointment.email }}
                                             </div>
                                             <div class="contact-group">
-                                                {{ question.english_text }}
+                                                {{ appointment.contactNumber }}
                                             </div>
                                             <div class="message-group">
-                                                {{ question.english_text }}
+                                                {{ appointment.message }}
+                                            </div>
+                                            <div class="message-group">
+                                                {{ appointment.date }}
                                             </div>
                                         </div>
 

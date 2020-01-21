@@ -35,8 +35,8 @@
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="/">Find Assessment</a></li>
-                        <li><a href="/appointments">Appointments</a></li>
-                        <li><a href="/logout">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                        <li><a href="{% url 'appointment:view_appointments' %}">Appointments</a></li>
+                        <li><a href="{% url 'authentication:logout' %}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -55,7 +55,8 @@
                     <p style="color: red">{{ error_message }}</p>
                     <form action="{% url 'assessment:show_particular_assessment' %}" method="get" autocomplete="off">
                         <div class="form-group">
-                            <input type="text" name="assessment_id" placeholder="Assessment Id" onfocus="this.placeholder = ''"
+                            <input type="text" name="assessment_id" placeholder="Assessment Id"
+                                   onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'Assessment Id'" required>
                         </div>
                         <button type="submit" class="template-btn" style="color: white">Find</button>
