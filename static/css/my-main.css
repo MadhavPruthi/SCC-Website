@@ -329,7 +329,6 @@ iframe {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -338,6 +337,21 @@ iframe {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 10px 130px 33px 95px;
+}
+
+.wrap-login200 {
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 70px 33px 70px;
 }
 
 
