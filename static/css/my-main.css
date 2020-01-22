@@ -254,18 +254,47 @@ iframe {
     width: 20%;
     padding-right: 15px;
     text-align: left;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
 }
 
 .email-group {
     width: 25%;
     padding-right: 15px;
     text-align: left;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 
 .contact-group {
     width: 20%;
     padding-right: 15px;
     text-align: left;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
 }
 
 .message-group {
@@ -277,6 +306,14 @@ iframe {
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 
 .choice-group {
@@ -287,6 +324,9 @@ iframe {
     display: -moz-box;
     display: -ms-flexbox;
     justify-content: space-between;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
 }
 
 .index {
@@ -351,7 +391,7 @@ iframe {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 10px 70px 33px 70px;
+    padding: 10px 40px 33px 40px;
 }
 
 
@@ -427,6 +467,10 @@ iframe {
         padding: 10px 90px 33px 85px;
     }
 
+    .wrap-login200 {
+        padding: 10px 60px 33px 60px;
+    }
+
     .login100-pic {
         width: 35%;
     }
@@ -445,6 +489,10 @@ iframe {
         padding: 10px 80px 33px 80px;
     }
 
+    .wrap-login200 {
+        padding: 10px 40px 33px 40px;
+    }
+
     .login100-pic {
         display: none;
     }
@@ -461,6 +509,10 @@ iframe {
 @media (max-width: 576px) {
     .wrap-login100 {
         padding: 10px 15px 33px 15px;
+    }
+
+    .wrap-login200 {
+        padding: 10px 5px 33px 5px;
     }
 
     .wrap-otp100 {
