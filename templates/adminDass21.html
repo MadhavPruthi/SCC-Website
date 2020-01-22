@@ -63,8 +63,8 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li class="menu-active"><a href="/">Find Assessment</a></li>
-                        <li><a href="/appointments">Appointments</a></li>
+                        <li class="menu-active"><a href="{% url 'assessment:check_assessment' %}">Find Assessment</a></li>
+                        <li><a href="{% url 'appointment:view_appointments' %}">Appointments</a></li>
                         <li><a href="{% url 'authentication:logout' %}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                     </ul>
                 </nav><!-- #nav-menu-container -->

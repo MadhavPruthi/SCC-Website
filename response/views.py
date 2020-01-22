@@ -1,4 +1,5 @@
 import requests
+from django.core.mail import send_mail
 from django.http import Http404
 from django.shortcuts import render
 
@@ -36,6 +37,16 @@ def submit_response(request):
                     print(e)
 
             user_response.save()
+            try:
+                send_mail(
+                    'Thank you for taking out the time',
+                    'Your Assessment id is ' + user_response.response_id,
+                    'madhavpruthi0@gmail.com',
+                    [user_response.email],
+                    fail_silently=False,
+                )
+            except Exception as e:
+                print("Exception Occured: " + str(e))
             return render(request, "thank-you.html", {"assessment_id": user_response.response_id})
         else:
             raise Http404("ReCaptcha Not Verified")

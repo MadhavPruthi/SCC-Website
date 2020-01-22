@@ -19,7 +19,7 @@ def make_appointment(request):
             date=datetime_object
         )
         appointment.save()
-        return redirect('home')
+        return render(request, 'appointmentSubmission.html', {})
     else:
         return HttpResponseNotFound('<h1>Page not found</h1>')
 
