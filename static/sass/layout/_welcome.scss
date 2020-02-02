@@ -1,5 +1,5 @@
 /* 7. Welcome */
-.welcome-img {
+.greeting-img {
     img {
         width: 120%;
         position: relative;
@@ -15,7 +15,7 @@
         }
     }
 }
-.welcome-text {
+.greeting-text {
     padding: 100px;
     border: 10px solid $border;
     @include landscape-phone(){

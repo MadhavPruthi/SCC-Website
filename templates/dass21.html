@@ -31,7 +31,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/my-main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my-main2.css' %}">
     <!--===============================================================================================-->
 
     <script>
@@ -52,7 +52,6 @@
 
 <body>
 
-
 <header class="header-area">
     <div id="header">
         <div class="container">
@@ -66,22 +65,22 @@
                         <li class="menu-active"><a href="/">Home</a></li>
                         <li><a href="/#Appointment">Appointment</a></li>
                         <li><a href="/assessment">Take Assessment</a></li>
-{#                        <li><a href="/about">About Us</a></li>#}
                         <li><a href="/contact">Contact</a></li>
                     </ul>
-                </nav><!-- #nav-menu-container -->
+                </nav>
             </div>
         </div>
     </div>
 </header>
-<!-- Banner Area Starts -->
-<section class="banner-area other-page">
+
+<section class="main-background next-page">
     <div class="container">
         <div class="row">
             <div class="col-md-5">
                 <h1>DASS21</h1>
+                <a href="/">Home</a> <span>|</span> <a href="/contact">Contact Us</a>
                 <br>
-                {#                <a href="/">Home</a> <span>|</span> <a href="/contact">Contact</a>#}
+                <br>
                 <h4>Please read each statement and circle a number 0, 1, 2 or 3
                     which indicates how much the statement applied to you over the past week.
                     There are no right or wrong answers. Do not spend too much time on any statement.</h4>
@@ -89,8 +88,8 @@
         </div>
     </div>
 </section>
-<!-- Banner Area End -->
-<section class="patient-area">
+
+<section class="patient-section">
     <div class="container">
         <div class="row">
             <div class="limiter">
@@ -153,7 +152,6 @@
                                         </div>
 
                                     {% endfor %}
-                                    <!-- Question Block end -->
                                 </div>
 
                                 <div class="form-group m-t-40" style="width:100%;">
@@ -182,12 +180,11 @@
 
                                 <div class="g-recaptcha" data-sitekey="6Ld8nscUAAAAAHCeFpma2nkQlTqF2gwPJx7i2rAg"
                                      aria-required=></div>
-                            <div class="form-group m-t-40" style="width:100%;">
-
-                                        <label class="txt3 p-b-10">
-                                            <input class="txt3 form-control" name="privacy-policy" required type="checkbox"/>
-                                            I have read the privacy policy and agree to the site usage.
-                                        </label>
+                                <div class="form-group m-t-40" style="width:100%;">
+                                    <label class="checkbox-inline">
+                                        <input style="margin-right: 10px" name="privacy-policy" required type="checkbox"/>
+                                        I have read the privacy policy and agree to the site usage.
+                                    </label>
 
 
                                 </div>
@@ -206,7 +203,7 @@
     </div>
 </section>
 
-<footer id="footer" class="footer-area">
+<footer id="footer" class="footer-section">
     <div class="container-fluid">
         <p>
             &copy; <a href="/">Calm Minds, Inc. 2020-2026 <!--TODO to update these years --></a> |
