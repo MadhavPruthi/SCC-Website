@@ -47,7 +47,7 @@ def submit_response(request):
                 )
             except Exception as e:
                 print("Exception Occured: " + str(e))
-            return render(request, "thank-you.html", {"assessment_id": user_response.response_id})
+            return render(request, "public/thank-you.html", {"assessment_id": user_response.response_id})
         else:
             raise Http404("ReCaptcha Not Verified")
     raise Http404("Wrong Entry")

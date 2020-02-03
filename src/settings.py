@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'response',
     'authentication',
     'appointment',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 LOGIN_REDIRECT_URL = reverse_lazy('assessment:check_assessment')
 LOGIN_URL = reverse_lazy('authentication:login')
 LOGOUT_REDIRECT_URL = reverse_lazy('authentication:login')
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

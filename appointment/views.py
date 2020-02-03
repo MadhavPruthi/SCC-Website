@@ -19,7 +19,7 @@ def make_appointment(request):
             date=datetime_object
         )
         appointment.save()
-        return render(request, 'appointmentSubmission.html', {})
+        return render(request, 'public/appointmentSubmission.html', {})
     else:
         return HttpResponseNotFound('<h1>Page not found</h1>')
 
@@ -29,7 +29,7 @@ def view_appointments(request):
     if request.method == 'GET':
         data = Appointment.objects.all()
         context = {"data": data}
-        return render(request, 'appointmentRequests.html', context);
+        return render(request, 'admin/appointmentRequests.html', context);
 
     else:
         return HttpResponseNotFound('<h1>Page not found</h1>')

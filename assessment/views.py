@@ -14,12 +14,12 @@ def assessment_page(request):
     }
 
     if request.method == "GET":
-        return render(request, "dass21.html", context)
+        return render(request, "public/dass21.html", context)
 
 
 @login_required()
 def check_assessment_view(request):
-    return render(request, 'findAssessment.html', {})
+    return render(request, 'admin/findAssessment.html', {})
 
 
 @login_required()
@@ -34,7 +34,7 @@ def show_particular_assessment(request):
             "choices": choices,
             "user_response": user_response,
         }
-        return render(request, 'adminDass21.html', context)
+        return render(request, 'admin/adminDass21.html', context)
     else:
-        return render(request, 'findAssessment.html',
+        return render(request, 'admin/findAssessment.html',
                       {"error_message": assessment_id + " doesn't exist in our database!"})

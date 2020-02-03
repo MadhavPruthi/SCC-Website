@@ -1,0 +1,106 @@
+{% extends 'admin/adminNavbarTemplate.html' %}
+{% load static %}
+
+{% block script_js %}
+    <script>
+        $("#dass21-form").submit(function (event) {
+
+            console.log("PRESEED");
+            var recaptcha = $("#g-recaptcha-response").val();
+            if (recaptcha === "") {
+                event.preventDefault();
+                alert("Please check the recaptcha");
+            }
+        });
+
+    </script>
+{% endblock %}
+
+{% block body_content %}
+    <!-- Banner Area Starts -->
+    <section class="main-background next-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h1>Appointments</h1>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
+    <section class="patient-section">
+        <div class="container">
+            <div class="row">
+                <div class="limiter">
+                    <div class="container-login100">
+                        <div class="wrap-login200">
+
+                            <div class="text-left p-t-10">
+
+                                <hr/>
+
+                                <form class=" p-t-20">
+
+                                    {% csrf_token %}
+
+                                    <div class="question-group txt3">
+                                        <div class="boxed">
+                                            <div class="index"></div>
+
+                                            <div class="name-group title ">
+                                                <h5>Name</h5>
+                                            </div>
+                                            <div class="email-group title">
+                                                <h5>Email</h5>
+                                            </div>
+                                            <div class="contact-group title">
+                                                <h5>Contact</h5>
+                                            </div>
+
+                                            <div class="message-group title">
+                                                <h5>Message</h5>
+                                            </div>
+
+                                            <div class="message-group title">
+                                                <h5>Date/Time</h5>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question Block start -->
+
+                                        {% for appointment in data %}
+                                            <div class="boxed">
+                                                <div class="index">
+                                                    {{ forloop.counter }}.
+                                                </div>
+
+                                                <div class="name-group">
+                                                    {{ appointment.name }}
+                                                </div>
+                                                <div class="email-group">
+                                                    {{ appointment.email }}
+                                                </div>
+                                                <div class="contact-group">
+                                                    {{ appointment.contactNumber }}
+                                                </div>
+                                                <div class="message-group">
+                                                    {{ appointment.message }}
+                                                </div>
+                                                <div class="message-group">
+                                                    {{ appointment.date }}
+                                                </div>
+                                            </div>
+
+                                        {% endfor %}
+                                        <!-- Question Block end -->
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
