@@ -529,7 +529,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .patient-section .appointment-form {
     padding: 80px;
-    background-image: url("../images/patient.jpg");
+    background-image: url("../images/appointment.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
