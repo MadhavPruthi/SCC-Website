@@ -2,7 +2,6 @@ import requests
 from django.core.mail import send_mail
 from django.http import Http404
 from django.shortcuts import render
-
 from assessment.models import Question, Choice
 from response.models import UserResponse, Response
 from src import settings
@@ -20,7 +19,6 @@ def submit_response(request):
 
         r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
         result = r.json()
-
         if result['success']:
             data = request.POST
             user_response = UserResponse(email=data["email"], comments=data["comments"])

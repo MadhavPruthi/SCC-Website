@@ -8,6 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Calm Minds | Counselling Services">
+    <meta property="og:title" content="Calm Minds">
+    <meta property="og:url" content="https://www.thecalmminds.org">
+    <meta property="og:description" content="DASS21 | Calm Minds | Counselling Services">
+    <meta property="og:image" content="{% static 'images/logo/favicon.png' %}">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!--===============================================================================================-->
@@ -36,9 +41,7 @@
 
     <script>
         $("#dass21-form").submit(function (event) {
-
-            console.log("PRESEED");
-            var recaptcha = $("#g-recaptcha-response").val();
+            let recaptcha = $("#g-recaptcha-response").val();
             if (recaptcha === "") {
                 event.preventDefault();
                 alert("Please check the recaptcha");
@@ -178,7 +181,7 @@
                                     </i>
                                 </div>
 
-                                <div class="g-recaptcha" data-sitekey="6Ld8nscUAAAAAHCeFpma2nkQlTqF2gwPJx7i2rAg"
+                                <div class="g-recaptcha" data-sitekey="6LdQn9YUAAAAAJ_Sf6BwONi1OTHklLdPCyzp01bA"
                                      aria-required=></div>
                                 <div class="form-group m-t-40" style="width:100%;">
                                     <label class="checkbox-inline">
