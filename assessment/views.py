@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 
 from assessment.models import Question, Choice
 from response.models import UserResponse
@@ -38,3 +39,13 @@ def show_particular_assessment(request):
     else:
         return render(request, 'admin/findAssessment.html',
                       {"error_message": assessment_id + " doesn't exist in our database!"})
+
+
+def show_question(request, pk):
+    question = get_object_or_404(Question, pk=pk)
+    return HttpResponse('<h2>' + question.english_text + '</h2>')
+
+
+def show_choice(request, pk):
+    choice = get_object_or_404(Choice, pk=pk)
+    return HttpResponse('<h2>' + choice.choice_text + '</h2>')

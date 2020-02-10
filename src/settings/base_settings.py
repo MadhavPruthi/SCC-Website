@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 SECRET_KEY = config('SECRET_KEY')
 GOOGLE_RECAPTCHA_SECRET_KEY = config("GOOGLE_RECAPTCHA_SECRET_KEY")
-RECAPTCHA_INVISIBLE_SECRET=config("RECAPTCHA_INVISIBLE_SECRET")
+RECAPTCHA_INVISIBLE_SECRET = config("RECAPTCHA_INVISIBLE_SECRET")
 # GOOGLE_MAPS_KEY = config("GOOGLE_MAPS_KEY")
 
 
@@ -26,7 +26,10 @@ INSTALLED_APPS = [
     'authentication',
     'appointment',
     'django.contrib.sitemaps',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
