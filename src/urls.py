@@ -14,10 +14,10 @@ from response import urls as response_urls
 sitemaps = {
     'question': GenericSitemap({
         'queryset': Question.objects.all(),
-    }, priority=0.9),
+    }, priority=0.5),
     'choice': GenericSitemap({
         'queryset': Choice.objects.all(),
-    }, priority=0.9),
+    }, priority=0.5),
     'static': StaticViewSitemap,
 }
 
