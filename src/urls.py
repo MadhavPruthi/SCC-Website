@@ -26,6 +26,7 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
     path('', TemplateView.as_view(template_name="public/index.html"), name="home"),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type='text/plain'), name="robots"),
     path('auth/', include(auth_urls)),
     path('assessment/', include(assessment_urls)),
     path('response/', include(response_urls)),
