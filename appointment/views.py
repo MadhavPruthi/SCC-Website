@@ -39,9 +39,9 @@ def make_appointment(request):
 @login_required()
 def view_appointments(request):
     if request.method == 'GET':
-        data = Appointment.objects.all()
+        data = Appointment.objects.filter(date__gte=datetime.now())
         context = {"data": data}
-        return render(request, 'admin/appointmentRequests.html', context);
+        return render(request, 'admin/appointmentRequests.html', context)
 
     else:
         return HttpResponseNotFound('<h1>Page not found</h1>')
